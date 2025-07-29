@@ -1,0 +1,26 @@
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+     ListNode res=new ListNode(0);//create a dummy node
+     ListNode ptr=res;//to give the pointer move to step by step
+     int carry=0;// 14 carry is 1
+     while(l1!=null || l2!=null || carry!=0){
+         int sum=0+carry;// sum val is add to carry
+         if(l1!=null){
+             sum+=l1.val;//0+2=2
+             l1=l1.next;//4
+        }
+         if(l2!=null){
+             sum+=l2.val;
+             l2=l2.next;
+         }
+         carry=sum/10;
+         sum=sum%10;
+         ptr.next=new ListNode(sum);
+         ptr=ptr.next;
+     }
+     if(carry==1)
+         ptr.next=new ListNode(1);
+         return res.next;
+     
+ 
+ }}
